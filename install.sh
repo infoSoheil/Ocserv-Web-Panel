@@ -165,9 +165,9 @@ _EOF_
 
     sed -i 's@auth = "pam"@#auth = "pam"\nauth = "plain[passwd=/etc/ocserv/ocpasswd]"@g' "${confdir}/ocserv.conf"
     sed -i "s/max-same-clients = 2/max-same-clients = ${maxsameclients}/g" "${confdir}/ocserv.conf"
-    sed -i "s/max-clients = 16/max-clients = ${maxclients}/g" "${confdir}/ocserv.conf"
-    sed -i "s/tcp-port = 510/tcp-port = ${port}/g" "${confdir}/ocserv.conf"
-    sed -i "s/udp-port = 510/udp-port = ${port}/g" "${confdir}/ocserv.conf"
+    sed -i "s/max-clients = 128/max-clients = ${maxclients}/g" "${confdir}/ocserv.conf"
+    sed -i "s/tcp-port = 443/tcp-port = ${port}/g" "${confdir}/ocserv.conf"
+    sed -i "s/udp-port = 443/udp-port = ${port}/g" "${confdir}/ocserv.conf"
     sed -i 's/^ca-cert = /#ca-cert = /g' "${confdir}/ocserv.conf"
     sed -i 's/^cert-user-oid = /#cert-user-oid = /g' "${confdir}/ocserv.conf"
     sed -i "s/default-domain = example.com/#default-domain = example.com/g" "${confdir}/ocserv.conf"
