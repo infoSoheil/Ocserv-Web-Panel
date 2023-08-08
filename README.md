@@ -49,19 +49,3 @@ Ocserv(OpenConnect Server) And Ocserv User Management Pannel
 
             --email: you@example.com -> john.doe@gmail.com
             -d: vpn.example.com -> your domain or sub domain
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
