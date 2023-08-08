@@ -18,7 +18,8 @@ Config_Variable() {
     servercert=${1-server-cert.pem}
     serverkey=${2-server-key.pem}
     # VPN Intranet IP segment
-    vpnnetwork="10.10.8.0/21"
+    vpnnetwork="10.10.8.0"
+    vpnmask="255.255.248.0"
     # DNS
     dns1="8.8.8.8"
     dns2="8.8.4.4"
@@ -171,7 +172,8 @@ _EOF_
     sed -i 's/^ca-cert = /#ca-cert = /g' "${confdir}/ocserv.conf"
     sed -i 's/^cert-user-oid = /#cert-user-oid = /g' "${confdir}/ocserv.conf"
     sed -i "s/default-domain = example.com/#default-domain = example.com/g" "${confdir}/ocserv.conf"
-    sed -i "s@#ipv4-network = 192.168.1.0/24@ipv4-network = ${vpnnetwork}@g" "${confdir}/ocserv.conf"
+    sed -i "s/ipv4-network = 192.168.1.0/ipv4-network = ${vpnnetwork}/g" "${confdir}/ocserv.conf"
+    sed -i "s/ipv4-netmask = 255.255.255.0/ipv4-netmask = ${vpnmask}/g" "${confdir}/ocserv.conf"
     sed -i "s/#dns = 192.168.1.2/dns = ${dns1}\ndns = ${dns2}/g" "${confdir}/ocserv.conf"
     sed -i "s/cookie-timeout = 300/cookie-timeout = 86400/g" "${confdir}/ocserv.conf"
     sed -i 's/user-profile = profile.xml/#user-profile = profile.xml/g' "${confdir}/ocserv.conf"
