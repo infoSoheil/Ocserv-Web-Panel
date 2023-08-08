@@ -6,26 +6,26 @@
 
 <div class="d-flex justify-content-center">
     <div class="py-4 px-5 rounded text-center">
-        <h6 class="text-capitalize">To chack Status and restart ocserv service you shoul type your password agin !!</h6>
+        <h6 class="text-capitalize">برای نمایش وضعیت و یا شروع مجدد سرویس وی پی ان باید رمز عبور مدیر را وارد نمایید!!</h6>
         <button type="button" class="btn btn-outline-success my-2 mx-2" data-toggle="modal" data-target="#Modal"
             id="restartbtn">
             <i class="fa fa-play mx-1" aria-hidden="true"></i>
-            Restart
+            شروع مجدد سرویس
         </button>
 
         <button type="button" class="btn btn-outline-success my-4 mx-2" data-toggle="modal" data-target="#Modal"
             id="statusbtn">
             <i class="fa fa-cogs mx-1" aria-hidden="true"></i>
-            Status
+            نمایش وضعیت سرویس
         </button>
 
         <div class="bg-success px-4 py-3 col-9 mr-auto ml-auto text-capitalize rounded text-left" id="statusResult"
             style="border: 2px solid black;display: none;">
             <p>
-                service : <span id="service"></span><br>
-                status : <span id="status"></span><br>
-                since : <span id="since"></span><br>
-                uptime : <span id="uptime"></span><br>
+                سرویس : <span id="service"></span><br>
+                وضعیت: <span id="status"></span><br>
+                زمان ساخت سرویس : <span id="since"></span><br>
+                مدت زمان فعالیت : <span id="uptime"></span><br>
             </p>
         </div>
 
@@ -39,16 +39,16 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-title text-center text-dark mb-4">
-                            <h4><span id="mode"></span> Ocserv Service</h4>
+                            <h4><span id="mode"></span>سرویس وی پی ان</h4>
                         </div>
                         <div class="d-flex flex-column text-center mb-4">
                             <form id="form">
                                 <div class="form-group mb-4">
                                     <input type="password" class="form-control" id="password"
-                                        placeholder="Enter your password ...">
+                                        placeholder="رمز عبور را وارد کنید ...">
                                     <div class="bg-danger px-2 py-1 rounded text-center my-2"
                                         style="font-size: 12px;display: none;" id="errorForm">
-                                        Invalid password
+                                        رمز عبور اشتباه است
                                     </div>
                                 </div>
                                 <button type="button" class="btn btn-info btn-block btn-round" id="btnConfirm"
@@ -98,7 +98,7 @@
         $("#btnConfirm").click(function () {
             var mode = $("#btnConfirm").html().toLowerCase()
             var password = $("#password").val()
-            var loading = '<i class="fa fa-spinner fa-spin mx-1"></i>Please wait...';
+            var loading = '<i class="fa fa-spinner fa-spin mx-1"></i>لطفا صبر کنید...';
             var self = $("#restartConfirm");
             self.html(loading);
             self.prop("disabled", true);

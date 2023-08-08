@@ -20,11 +20,11 @@ class AddUserForm(forms.ModelForm):
         oc_username = self.cleaned_data['oc_username']
         obj = OcservUser.objects.filter(oc_username=oc_username)
         if obj.exists():
-            raise forms.ValidationError("username is already exist".title())
+            raise forms.ValidationError("نام کاربری تکراری است".title())
         return oc_username
 
     def clean_expire_date(self):
         expire_date = self.cleaned_data['expire_date']  
         if expire_date and expire_date <= timezone.now().date():
-            raise forms.ValidationError("the expiration date cannot be less than or equal the current date".title())
+            raise forms.ValidationError("تاریخ انقضا نمیتواند برابر و یا کوچکتر از تاریخ امروز باشد".title())
         return expire_date

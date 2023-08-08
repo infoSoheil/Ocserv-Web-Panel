@@ -90,7 +90,7 @@ class ChangePassword(View):
 class Home(ListView):
     template_name = "home.html"
     queryset = OcservUser.objects.all().order_by("create")
-    paginate_by = 10
+    paginate_by = 100
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
@@ -200,7 +200,7 @@ class SyncDb(View):
                 if not filtered.exists():              
                     OcservUser.objects.create(
                         oc_username=user,
-                        oc_password="OCSERV_HASH_PASSWORD",
+                        oc_password="رمز قابل نمایش نیست",
                         oc_active=ocpasswd_users[user]
                     )
             return JsonResponse({}, status=200)

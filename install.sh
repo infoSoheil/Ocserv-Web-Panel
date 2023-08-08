@@ -11,14 +11,14 @@ cd ${basepath}
 Config_Variable() {
     # Variable settings
     # Single IP maximum number of connections, the default is 2
-    maxsameclients=2
+    maxsameclients=3
     # The maximum number of connections, the default is 16
-    maxclients=1024
+    maxclients=0
     # Server certificate and key file, placed in the same directory with the script, the key file permissions should be 600 or 400
     servercert=${1-server-cert.pem}
     serverkey=${2-server-key.pem}
     # VPN Intranet IP segment
-    vpnnetwork="172.16.24.0/24"
+    vpnnetwork="10.10.8.0/21"
     # DNS
     dns1="8.8.8.8"
     dns2="8.8.4.4"
@@ -166,8 +166,8 @@ _EOF_
     sed -i 's@auth = "pam"@#auth = "pam"\nauth = "plain[passwd=/etc/ocserv/ocpasswd]"@g' "${confdir}/ocserv.conf"
     sed -i "s/max-same-clients = 2/max-same-clients = ${maxsameclients}/g" "${confdir}/ocserv.conf"
     sed -i "s/max-clients = 16/max-clients = ${maxclients}/g" "${confdir}/ocserv.conf"
-    sed -i "s/tcp-port = 443/tcp-port = ${port}/g" "${confdir}/ocserv.conf"
-    sed -i "s/udp-port = 443/udp-port = ${port}/g" "${confdir}/ocserv.conf"
+    sed -i "s/tcp-port = 510/tcp-port = ${port}/g" "${confdir}/ocserv.conf"
+    sed -i "s/udp-port = 510/udp-port = ${port}/g" "${confdir}/ocserv.conf"
     sed -i 's/^ca-cert = /#ca-cert = /g' "${confdir}/ocserv.conf"
     sed -i 's/^cert-user-oid = /#cert-user-oid = /g' "${confdir}/ocserv.conf"
     sed -i "s/default-domain = example.com/#default-domain = example.com/g" "${confdir}/ocserv.conf"
