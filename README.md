@@ -1,4 +1,4 @@
-Ocserv and Ocserv User Management Pannel
+Ocserv(OpenConnect Server) And Ocserv User Management Pannel
 
     To instal this script run this command in your server :
     
