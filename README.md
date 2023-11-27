@@ -3,7 +3,7 @@ Ocserv(OpenConnect Server) And Ocserv User Management Pannel
     To instal this script run this command in your server :
     
         First clone project to your server :
-            # git clone https://github.com/infoSoheil/Ocserv-Web-Panel.git && cd Ocserv-Web-Panel.git
+            # git clone https://github.com/infoSoheil/Ocserv-Web-Panel.git && cd Ocserv-Web-Panel
     
         Then run this commands :
             # sudo chmod 755 install.sh
